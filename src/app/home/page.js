@@ -1,6 +1,6 @@
 "use client"
 
-import React from 'react';
+import {useState, useEffect} from 'react';
 import Navbar from '../../components/Navbar.js';
 import InstituteStats from '@/components/InstituteStats.js';
 import HomeCourses from '@/components/HomeCourses.js';
@@ -17,47 +17,68 @@ import Footer from '@/components/Footer.js';
 import Link from 'next/link.js';
 
 
-function HeroSection(){
-  return(
-    <section className="pb-4 pt-[75px] px-3.5 sm:mt-16 lg:mt-0 bg-gradient-to-b from-gray-200 via-gray-100 to-white h-screen">
+function HeroSection () {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
+
+  return (
+    <section className="pb-4 pt-[40px] px-3.5 sm:mt-14 lg:mt-0 bg-gradient-to-b from-gray-200 via-gray-100 to-white h-screen">
       <div className="mx-auto lg:max-w-7xl w-full px-5 sm:px-10 md:px-12 lg:px-5 grid lg:grid-cols-2 lg:items-center gap-10">
         <div className="flex flex-col space-y-8 sm:space-y-10 lg:items-center text-center lg:text-left max-w-2xl md:max-w-3xl mx-auto">
-          <h1 className="font-semibold leading-tight text-primary dark:text-white text-4xl sm:text-5xl lg:text-6xl">
-            Enhancing the knowledge of <span className="text-transparent bg-clip-text bg-gradient-to-tr from-blue-700 to-blue-900">future generations.</span>
+          <h1 
+            className={`font-semibold leading-tight text-primary dark:text-white text-4xl sm:text-5xl lg:text-6xl
+              transform transition-all duration-700 ease-out
+              ${isVisible ? 'translate-y-0 opacity-100' : '-translate-y-10 opacity-0'}`}
+          >
+            Enhancing the knowledge of{' '}
+            <span className={`text-transparent bg-clip-text bg-gradient-to-tr from-blue-700 to-blue-900
+              transition-all duration-700 delay-300 ease-out
+              ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+              future generations.
+            </span>
           </h1>
-          <p className="flex text-muted-foreground dark:text-gray-300 tracking-tight md:font-normal max-w-xl mx-auto lg:max-w-none">
-            Our classes are designed to help students excel in specific exams by offering targeted preparation, ensuring that students gain the knowledge and skills needed to achieve high marks.
+          
+          <p className={`flex text-muted-foreground dark:text-gray-300 tracking-tight md:font-normal max-w-xl mx-auto lg:max-w-none
+            transform transition-all duration-700 delay-500 ease-out
+            ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+            Our classes are designed to help students excel in specific exams by offering targeted preparation, 
+            ensuring that students gain the knowledge and skills needed to achieve high marks.
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 w-full">
+          
+          <div className={`flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 w-full
+            transform transition-all duration-700 delay-700 ease-out
+            ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
             <Link href={'/form'}>
-            <Button size="lg" className="text-lg rounded-none font-medium bg-blue-600 hover:bg-blue-700">
-              Enroll Now
-            </Button>
+              <Button 
+                size="lg" 
+                className="text-lg rounded-none font-medium bg-blue-600 hover:bg-blue-700 
+                  transform transition-all duration-300 hover:scale-105"
+              >
+                Enroll Now
+              </Button>
             </Link>
           </div>
-          {/* <div className="mt-5 flex items-center justify-center flex-wrap gap-4 lg:justify-start w-full">
-            {[1, 2, 3, 4].map((i) => (
-              <div key={i} className="h-10 w-20 bg-muted rounded-md" aria-label={`Partner logo ${i}`} />
-            ))}
-          </div> */}
         </div>
-        <div className="flex flex-1 lg:w-full lg:h-full relative lg:max-w-none lg:mx-0 mx-auto max-w-3xl">
-            <Image 
-                src={Banner} 
-                alt="Hero image" 
-                width={2350} 
-                height={2359} 
-                className="hidden lg:block lg:absolute lg:w-full lg:h-full rounded-3xl object-cover lg:max-h-none max-h-96" 
-            />
-            {/* Optionally add other content that should be displayed on smaller screens */}
-            {/* <div className="block lg:hidden p-4 bg-white bg-opacity-80 rounded-lg shadow-md">
-                
-            </div> */}
+        
+        <div className={`flex flex-1 lg:w-full lg:h-full relative lg:max-w-none lg:mx-0 mx-auto max-w-3xl
+          transform transition-all duration-1000 delay-300 ease-out
+          ${isVisible ? 'translate-x-0 opacity-100' : 'translate-x-20 opacity-0'}`}>
+          <Image
+            src={Banner}
+            alt="Hero image"
+            width={2350}
+            height={2359}
+            className="hidden lg:block lg:absolute lg:w-full lg:h-full rounded-3xl object-cover lg:max-h-none max-h-96
+              transition-transform duration-700 hover:scale-[1.02]"
+          />
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
 function FeaturedCourse() {
   return(
@@ -197,7 +218,7 @@ const Home = () => {
       <WhoWeAre/>
       <br /><br />
       <InstituteStats/>
-      <HomeCourses />
+      <HomeCourses  />
       <br /><br />
       <ComputerCourseBanner/>
       <br /><br />

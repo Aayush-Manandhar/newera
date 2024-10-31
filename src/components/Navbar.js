@@ -4,12 +4,18 @@ import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import Image from 'next/image';
 import Logo from "@/images/Logo.png";
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import {
+  DialogContent,
+  DialogTitle,
+} from "@radix-ui/react-dialog";
+
 
 
 
@@ -24,11 +30,8 @@ export default function Component() {
         </div>
       </Link>
       <div className="hidden md:flex gap-4">
-        <Link href="#" className="text-lg font-normal hover:underline underline-offset-4"  >
+        <Link href={"/"} className="text-lg font-normal hover:underline underline-offset-4"  >
           Home
-        </Link>
-        <Link href="#" className="text-lg font-normal hover:underline underline-offset-4"  >
-          About
         </Link>
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
@@ -38,24 +41,40 @@ export default function Component() {
           </DropdownMenuTrigger>
             <DropdownMenuContent>
               {/* later when you have to link use Link in dropdown menu item */}
-                <DropdownMenuItem>Computer Course</DropdownMenuItem> 
+                <Link href={"/computer-course"} passHref>
+                <DropdownMenuItem>Computer Course</DropdownMenuItem>
+                </Link>
+                <Link href={"/bridge-course"} passHref>
                 <DropdownMenuItem>Bridge Course</DropdownMenuItem>
-                <DropdownMenuItem>Tution Classes</DropdownMenuItem>
+                </Link>
+                <Link href={"/tuition-class"} passHref>
+                <DropdownMenuItem>Tuition Classes</DropdownMenuItem>
+                </Link>
+                <Link href={"/ielts-class"} passHref>
                 <DropdownMenuItem>IELTS Classes</DropdownMenuItem>
-                <DropdownMenuItem>Japenese Classes</DropdownMenuItem>
+                </Link>
+                <Link href={"/japanese-class"} passHref>
+                <DropdownMenuItem>Japanese Classes</DropdownMenuItem>
+                </Link>
+                <Link href={"/designing"} passHref>
                 <DropdownMenuItem>Designing</DropdownMenuItem>
+                </Link>
+                <Link href={"/mobile-development"} passHref>
                 <DropdownMenuItem>Mobile Development</DropdownMenuItem>
-                <DropdownMenuItem>Web Development Development</DropdownMenuItem>
+                </Link>
+                <Link href={"/web-development"} passHref>
+                <DropdownMenuItem>Web Development</DropdownMenuItem>
+                </Link>
             </DropdownMenuContent>
           </DropdownMenu>
-        <Link href="#" className="text-lg font-normal hover:underline underline-offset-4"  >
+        <Link href={"/blogs"} className="text-lg font-normal hover:underline underline-offset-4"  >
           Blogs
         </Link>
         <Link href={"/contact"} className="text-lg font-normal hover:underline underline-offset-4"  >
           Contact
         </Link>
         <Link href={"/form"}>
-        <Button className="text-lg rounded-none font-medium hover:bg-blue-800 underline-offset-4 bg-blue-600"  >
+        <Button className="text-lg bg-blue-800 hover:bg-blue-950 text-white font-medium rounded-none transition-colors"  >
           Enroll Now
         </Button>
         </Link>
@@ -67,42 +86,54 @@ export default function Component() {
             <span className="sr-only">Toggle navigation menu</span>
           </Button>
         </SheetTrigger>
-        <SheetContent side="left">
-          <div className="grid w-[200px] p-4">
-            <Link href="#" className="text-lg font-medium hover:underline underline-offset-4 border-b-[2px] border-[#dadada]"  >
-              Home
-            </Link>
-            <Link href="#" className="text-lg font-medium hover:underline underline-offset-4 border-b-[2px] border-[#dadada]"  >
-              About
-            </Link>
-            <DropdownMenu   >
-              <DropdownMenuTrigger asChild>
-              <Link href="#" className="text-lg font-medium hover:underline underline-offset-4 border-b-[2px] border-[#dadada]"  >
-              Courses
+        <SheetContent className="flex flex-col mb-3 border-b-black">
+          <DialogTitle>Menu</DialogTitle> {/* Removed VisuallyHidden */}
+          <Link href={"/"} className="text-lg font-normal hover:underline underline-offset-4">
+            Home
+          </Link>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Link href="#" className="text-lg font-normal hover:underline underline-offset-4">
+                Courses
               </Link>
-              </DropdownMenuTrigger>
-                <DropdownMenuContent>
-                  {/* later when you have to link use Link in dropdown menu item */}
-                    <DropdownMenuItem>Computer Course</DropdownMenuItem> 
-                    <DropdownMenuItem>Bridge Course</DropdownMenuItem>
-                    <DropdownMenuItem>Tution Classes</DropdownMenuItem>
-                    <DropdownMenuItem>IELTS Classes</DropdownMenuItem>
-                    <DropdownMenuItem>Japenese Classes</DropdownMenuItem>
-                    <DropdownMenuItem>Designing</DropdownMenuItem>
-                    <DropdownMenuItem>Mobile Development</DropdownMenuItem>
-                    <DropdownMenuItem>Web Development Development</DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
-              <Link href="#" className="text-lg font-medium hover:underline underline-offset-4 border-b-[2px] border-[#dadada]"  >
-                Blogs
-              </Link>
-              <Link href="#" className="text-lg font-medium hover:underline underline-offset-4 border-b-[2px] border-[#dadada]"  >
-                Contact
-              </Link>
-              <Link href="/form" className="text-lg font-medium hover:underline underline-offset-4 border-b-[2px] border-[#dadada]"  >
-                Enroll Form
-              </Link>
-          </div>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent>
+            <Link href={"/computer-course"} passHref>
+                <DropdownMenuItem>Computer Course</DropdownMenuItem>
+                </Link>
+                <Link href={"/bridge-course"} passHref>
+                <DropdownMenuItem>Bridge Course</DropdownMenuItem>
+                </Link>
+                <Link href={"/tuition-class"} passHref>
+                <DropdownMenuItem>Tuition Classes</DropdownMenuItem>
+                </Link>
+                <Link href={"/ielts-class"} passHref>
+                <DropdownMenuItem>IELTS Classes</DropdownMenuItem>
+                </Link>
+                <Link href={"/japanese-class"} passHref>
+                <DropdownMenuItem>Japanese Classes</DropdownMenuItem>
+                </Link>
+                <Link href={"/designing"} passHref>
+                <DropdownMenuItem>Designing</DropdownMenuItem>
+                </Link>
+                <Link href={"/mobile-development"} passHref>
+                <DropdownMenuItem>Mobile Development</DropdownMenuItem>
+                </Link>
+                <Link href={"/web-development"} passHref>
+                <DropdownMenuItem>Web Development</DropdownMenuItem>
+                </Link>
+              {/* Other course links */}
+            </DropdownMenuContent>
+          </DropdownMenu>
+          <Link href={"/blogs"} className="text-lg font-normal hover:underline underline-offset-4">
+            Blogs
+          </Link>
+          <Link href={"/contact"} className="text-lg font-normal hover:underline underline-offset-4">
+            Contact
+          </Link>
+          <Link href={"/form"}>
+              Enroll Now
+          </Link>
         </SheetContent>
       </Sheet>
     </div>
@@ -127,5 +158,6 @@ function MenuIcon(props) {
       <line x1="4" x2="20" y1="6" y2="6" />
       <line x1="4" x2="20" y1="18" y2="18" />
     </svg>
+    
   )
-}
+} 

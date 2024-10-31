@@ -47,9 +47,9 @@ const Footer = () => {
           <ul className = "space-y-2">
             {[
               { name: 'Home', href: '/' },
-              { name: 'Programs', href: '/' },
-              { name: 'Blogs', href: '/' },
-              { name: 'Contact', href: '/' },
+              { name: 'Programs', href: '?npm ' },
+              { name: 'Blogs', href: '/blogs' },
+              { name: 'Contact', href: '/contact' }
              ].map((item) => (
               <li key = {item.name}>
                 <Link href={item.href} passHref>
@@ -66,16 +66,16 @@ const Footer = () => {
           <h3 className="text-xl font-semibold mb-4">Courses</h3>
           <ul className="space-y-2 cursor-pointer">
             {[
-              { name: 'Computer Course', icon: '💻', href: '/' },
-              { name: 'Tuition Classes', icon: '📚', href: '/' },
-              { name: 'IELTS Class', icon: '🌐', href: '/' },
-              { name: 'Designing', icon: '🎨', href: '/' },
-              { name: 'Web Development', icon: '🌐', href: '/' },
-              { name: 'Mobile Development', icon: '📱', href: '/' },
+              { name: 'Computer Course', icon: '💻', href: '/computer-course' },
+              { name: 'Tuition Classes', icon: '📚', href: '/tuition-class' },
+              { name: 'IELTS Class', icon: '🌐', href: '/ielts-class' },
+              { name: 'Designing', icon: '🎨', href: '/designing' },
+              { name: 'Web Development', icon: '🌐', href: '/web-development' },
+              { name: 'Mobile Development', icon: '📱', href: '/mobile-development' },
             ].map((course) => (
-              <li key={course.name} className="flex items-center space-x-2">
-                <span>{course.icon}</span>
+              <li key={course.name} className="flex items-center ">
                 <Link href={course.href} passHref>
+                <span>{course.icon}</span>
                 <Button variant="link" className="p-0 h-auto text-white hover:text-blue-300">
                   {course.name}
                 </Button>

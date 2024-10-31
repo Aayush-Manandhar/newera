@@ -17,7 +17,7 @@ function Body() {
 
         <iframe
          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d441.5358119503708!2d85.28233418802608!3d27.708439268161715!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb1886189d6e91%3A0xec8d6a24c01cfcb3!2sKalika%20Staff%20Khana%20Hotel%20and%20Restaurant!5e0!3m2!1sen!2snp!4v1730090320100!5m2!1sen!2snp"
-         className='border-0 mx-auto w-1/2 lg:w-[80%]'
+         className='border-0 mx-auto w-[90%] md:w-[80%] lg:w-[70%] xl:w-[60%] 2xl:w-[50%] 2xl:max-w-full'
           width="220"
            height="350"
               loading="lazy"
